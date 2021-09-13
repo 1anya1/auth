@@ -79851,3 +79851,17 @@ Processing by PlantsController#destroy as */*
 Completed 200 OK in 27ms (Views: 0.2ms | ActiveRecord: 5.3ms | Allocations: 8273)
 
 
+Started DELETE "/users/1/todos/1/plants/2" for ::1 at 2021-09-12 23:34:37 -0700
+Processing by PlantsController#destroy as */*
+  Parameters: {"user_id"=>"1", "todo_id"=>"1", "id"=>"2"}
+  [1m[36mPlant Load (0.4ms)[0m  [1m[34mSELECT "plants".* FROM "plants" WHERE "plants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/plants_controller.rb:45:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/plants_controller.rb:45:in `destroy'
+  [1m[36mPlant Destroy (0.3ms)[0m  [1m[31mDELETE FROM "plants" WHERE "plants"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/plants_controller.rb:45:in `destroy'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/plants_controller.rb:45:in `destroy'
+Completed 200 OK in 26ms (Views: 0.4ms | ActiveRecord: 8.6ms | Allocations: 4201)
+
+
